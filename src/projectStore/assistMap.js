@@ -34,19 +34,14 @@ export const initMap=()=>{
   handleData(projectStore.siteData.fixedData||[]);
 }
 
-export const  testPageMap=()=>{
-  console.log('test',pageMap.get('page1'))
-}
 
 export const updatePageById=(pageId,fn)=>{
-  console.log(1111,pageMap.get('page1'))
   const pageData=pageMap.get(pageId);
   if(!pageId||!pageData){
     throw new Error('id is invalid')
   } 
 
   fn(pageData)
-  console.log(2222,pageMap.get('page1'))
   pageData.components.forEach((com)=>{
     if(com.type==='group'){
       groupToMap(com)

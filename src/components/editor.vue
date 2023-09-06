@@ -1,23 +1,23 @@
 <template>
   <div class="editor">
-    <div ref="editorContainerRef" class="editorContainer">
-      <div ref="viewportRef"  class="viewport"></div>
-      <!-- <iframe></iframe> -->
-    </div>
+    <viewport 
+      v-for="(page,index) in pageData" 
+      :key="index" 
+      :page-data="page"
+      :on-drop="(data)=>{$emit('on-drop',data)}"
+    >
+    </viewport>
   </div>
 </template>
 
 <script setup>
-import { readonlyStore,updatePageById } from '../projectStore';
-import { ref } from 'vue';
-import useComponent
- from './hooks/useComponent';
-import useDropZone from './hooks/useDropZone';
+import viewport from './viewport.vue';
 
- const {addComponent}=useComponent(readonlyStore,updatePageById);
- const editorContainerRef=ref(null);
- const viewportRef=ref(null);
- useDropZone(editorContainerRef,viewportRef,addComponent)
+const props=defineProps({
+  pageData:Array
+})
+
+
 
 </script>
 

@@ -35,9 +35,7 @@ const useComponent=(projectStore,updatePageById)=>{
         newData.defaultValue.style.rect.w='375';
         newData.defaultValue.style.rect.h=newData.defaultValue.style.rect.w / ratio
       }
-      console.log('components1',pageData.components.name)
       pageData.components.push(newData);
-      console.log('components2',pageData.components)
     })
   }
 

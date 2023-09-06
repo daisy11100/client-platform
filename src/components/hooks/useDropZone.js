@@ -1,19 +1,16 @@
 import { onMounted } from "vue";
 import createInteract from "./useCreateInteract";
-import {testPageMap} from '../../projectStore/assistMap'
 
-const useDropZone=(editorContainerRef,viewportRef,addComponent)=>{
+const useDropZone=(editorContainerRef,viewportRef,emits)=>{
   let dropZone=null;
   let dropTarget='.drag-block';
 
   const ondragenter=()=>{
     console.log('enter')
-    testPageMap();
     // dragBlockFlagRef.value=true;
   }
 
   const ondragleave=()=>{
-    console.log('leave')
     // dragBlockFlagRef.value=false;
   }
 
@@ -36,7 +33,7 @@ const useDropZone=(editorContainerRef,viewportRef,addComponent)=>{
     !formatData.defaultValue.style.rect && (formatData.defaultValue.style.rect={});
     formatData.defaultValue.style.rect.x=`${x}px`;
     formatData.defaultValue.style.rect.y=`${y}px`;
-    addComponent(formatData)
+    emits('on-drop',formatData)
   }
 
 

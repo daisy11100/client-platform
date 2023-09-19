@@ -33,7 +33,7 @@ const editorContainerRef = ref(null);
 const viewportRef = ref(null);
 const pageDataCopyRef = ref({});
 const renderRef = ref(null);
-let _iframeSrc;
+let _iframeSrc = "http://127.0.0.1:3000/";
 
 watch(
   () => props.pageData,
@@ -46,7 +46,6 @@ watch(
 useDropZone(editorContainerRef, viewportRef, emits);
 
 const { pageData: pageDataRef } = toRefs(props);
-console.log("🚀 ~ file: viewport.vue:49 ~ pageDataRef:", pageDataRef.value);
 const { sendDataToRender, sendComponentsUpdate } = useSendIframeData(
   renderRef,
   props,

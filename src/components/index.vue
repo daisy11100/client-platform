@@ -10,11 +10,14 @@
       :component-data="componentData"
     ></material>
     <editor
-      ref="canvasRef"
-      @on-drop="addComponent"
+      @on-drop="(data) => addComponent(data)"
       :page-data="readonlyStore.siteData.pageData"
     ></editor>
-    <setting></setting>
+    <setting
+      :site-option="readonlyStore.siteOptions"
+      :component-data="designEditorDataRef"
+      :component-list="componentListRef"
+    ></setting>
   </template>
 </template>
 
@@ -27,10 +30,13 @@ import {
   setPorjectStore,
   updatePageById,
   readonlyStore,
+  updateCompnentById,
 } from "../projectStore";
-import { defaultProjectData } from "../config/pageConfig";
+import { defaultProjectData } from "../config/index";
 import useComponent from "./hooks/useComponent";
-import { ref } from "vue";
+import useEditor from "./hooks/useEditor";
+import projectStore from "../projectStore/projectStore";
+import { focusPageDataRef, focusFixedDataRef } from "../projectStore/siteData";
 
 const initNewProject = () => {
   const initData = JSON.parse(JSON.stringify(defaultProjectData));
@@ -44,7 +50,14 @@ const { addComponent, loadComponent, componentData } = useComponent(
   updatePageById
 );
 loadComponent(); //加载所有组件
-const canvasRef = ref(null);
+const { designEditorDataRef, componentListRef } = useEditor(
+  projectStore,
+  componentData,
+  updateCompnentById,
+  updatePageById,
+  focusPageDataRef,
+  focusFixedDataRef
+);
 </script>
 
 <style scoped lang="scss">

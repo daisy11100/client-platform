@@ -2,7 +2,7 @@ import projectStore from "./projectStore";
 
 
 const pageMap=new Map();
-const componentsMap=new Map();
+export const componentsMap=new Map();
 
 const groupToMap=(component)=>{
   component.children.forEach((com)=>{
@@ -37,11 +37,13 @@ export const initMap=()=>{
 
 export const updatePageById=(pageId,fn)=>{
   const pageData=pageMap.get(pageId);
+  // debugger
   if(!pageId||!pageData){
     throw new Error('id is invalid')
   } 
 
   fn(pageData)
+  window.DATA=pageData;
   pageData.components.forEach((com)=>{
     if(com.type==='group'){
       groupToMap(com)

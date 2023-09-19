@@ -6,7 +6,12 @@
     @mouseup="mouseUp"
   >
     <slot name="content"></slot>
-    <div ref="dragBlockRef" :style="dragStyleRef" class="drag-block" :component-data="JSON.stringify(componentItem)">
+    <div
+      ref="dragBlockRef"
+      :style="dragStyleRef"
+      class="drag-block"
+      :component-data="JSON.stringify(componentItem)"
+    >
       <slot name="content"></slot>
     </div>
   </div>
@@ -17,16 +22,16 @@ import { onMounted, ref, toRefs } from "vue";
 
 const dragBlockWrapRef = ref(null);
 const dragBlockRef = ref(null);
-const emit=defineEmits(['add-component']);
-const props=defineProps({
-  componentData:Object,
-  componentItem:Object
-})
+const emit = defineEmits(["add-component"]);
+const props = defineProps({
+  componentData: Object,
+  componentItem: Object,
+});
 
-const {componentData:componentDataRef}=toRefs(props)
+const { componentData: componentDataRef } = toRefs(props);
 
 const { WrapStyleRef, dragStyleRef, mouseDown, mouseUp, initInteract } =
-  useDrag(dragBlockWrapRef,componentDataRef,emit);
+  useDrag(dragBlockWrapRef, componentDataRef, emit);
 
 onMounted(() => {
   initInteract(dragBlockRef.value);

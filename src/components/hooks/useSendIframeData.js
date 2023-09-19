@@ -4,7 +4,7 @@ const useSendIframeData=(renderRef,props,pageDataRef)=>{
     const originData={
       type:'updateSiteData',
       pageData:pageDataRef.value,
-      canvasOptions:{backgound:'transparent'}
+      canvasOptionxs:{backgound:'transparent'}
     }
     const data=JSON.parse(JSON.stringify(originData));
     renderRef.value?.contentWindow.postMessage(data,'*');

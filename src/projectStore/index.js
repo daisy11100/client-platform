@@ -5,7 +5,7 @@ import { updateCompnentById,updatePageById } from './assistMap';
 const initStore=()=>{
   provide('resetProjectStore',resetProjectStore);
   provide('updateCompnentById',updateCompnentById);
-  provide('updatePageId',updatePageById);
+  provide('updatePageById',updatePageById);
 }
 
 

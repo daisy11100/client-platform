@@ -1,4 +1,4 @@
-# low code
+### low code
 
 组件区域+编辑区+配置区
 
@@ -13,4 +13,12 @@ render根据传递过去的数据(pageData)这种去渲染样式的。
 
 所以为啥 使用iframe嵌入render，拖入组件就能渲染  
 client和iframe通信也只是传递了(pageData)，并没有资源啊
-（client上获取到了所有的组件，所以在drop时，加一个资源到模版上？
+解答：Render上通过传过来的PageData获取组件列表，然后再通过接口获取组件对应的资源，插入到document上。  
+但是client和iframe的这种通信只在iframe加载时候传过数据 所以当drop进一个组件进入画布区的时候，更新了本地的pageData外，Render上又是怎么动态加载组件资源的  
+还是通过接口修改了window.DATA;
+解答：因为传的对象是响应式的，所以每次drop一个组件后，都会修改pageData,因此传递到render的数据也会发生改变
+
+✅ 组件拖拽
+✅ 拖拽到画布区显示，render实时更新资源
+❎ meta
+❎ 种子工程，开发几个组件试试，组件资源需要cdn

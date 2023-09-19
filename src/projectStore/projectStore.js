@@ -9,7 +9,6 @@ const upProjectStore=reducer(projectStore);
 export const setPorjectStore=(data,param)=>{
   upProjectStore(data,param);
   initMap();
-  console.log('projectStore',projectStore)
 }
 
 export const resetProjectStore=()=>{

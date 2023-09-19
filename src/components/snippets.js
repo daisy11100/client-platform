@@ -1,0 +1,49 @@
+export default {
+  textarea:{labelPostion:'top'},
+  tabel:{labelPostion:'top'},
+  'Upload':{labelPostion:'top'},
+  'Rect':{
+    labelPostion:'top',
+    key:'rect',
+    label:'位置信息'
+  },
+  'Font':{
+    labelPostion:'top',
+    key:'font',
+    label:'字体设置'
+  },
+  'Shadow':{
+    labelPostion:'top',
+    key:'shadow',
+    label:'阴影'
+  },
+  'Font':{
+    labelPostion:'top',
+    key:'font',
+    label:'字体设置'
+  },
+  'Border':{
+    labelPostion:'top',
+    key:'border',
+    label:'边框'
+  },
+  'Background':{
+    labelPostion:'top',
+    key:'background',
+    label:'背景颜色'
+  },
+  'BorderRadius':{
+    labelPostion:'top',
+    key:'borderRadius',
+    label:'边框圆角'
+  },
+  'Padding':{
+    labelPostion:'top',
+    key:'padding|padding',
+    label:'边距'
+  },
+  'FullScreen': {
+    labelPosition: 'top',
+    key: 'height|fs'
+  }
+}

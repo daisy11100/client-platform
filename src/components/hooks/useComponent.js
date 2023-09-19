@@ -1,13 +1,13 @@
 import { reactive } from "vue";
-import { defaultComponentData } from "../../config/componentConfig"
+import { defaultComponentData } from "../../config/index"
 import { merge } from "lodash-es";
-import { mockAllComponent } from "../../data/mockMaterialData";
+import { componentsList } from "../../data/mockMaterialData";
 // 加载所有组件、创建所有组件数据map、添加组件数据
 const useComponent=(projectStore,updatePageById)=>{
   const componentData=reactive({})
 
   const loadComponent=()=>{
-    mockAllComponent.forEach((item)=>{
+    componentsList.forEach((item)=>{
       componentData[item.name]={
         type:item.name,
         meta:item.meta,
@@ -17,11 +17,9 @@ const useComponent=(projectStore,updatePageById)=>{
         name:item.name
       }
     })
-    console.log('componentData',componentData)
   }
 
   const addComponent=(originData)=>{
-    
     const data=JSON.parse(JSON.stringify(originData));
     const newData=merge(
       defaultComponentData,

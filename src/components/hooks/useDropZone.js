@@ -33,7 +33,7 @@ const useDropZone=(editorContainerRef,viewportRef,emits)=>{
     !formatData.defaultValue.style.rect && (formatData.defaultValue.style.rect={});
     formatData.defaultValue.style.rect.x=`${x}px`;
     formatData.defaultValue.style.rect.y=`${y}px`;
-    emits('on-drop',formatData)
+    emits('on-drop',formatData);
   }
 
 

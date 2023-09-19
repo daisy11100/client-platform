@@ -17,7 +17,6 @@ const mockSettingData={
                             title:'自由布局',
                             desc:'元素可以任意叠加',
                             src:'https://baidu.com' //待添加
-                            // src:'https://wos2.58cdn.com.cn/iJkFeDcBiJiJ/rocket/ua6MlIDBo.mp4'
                         }
                     },
                     value:'position',
@@ -30,7 +29,6 @@ const mockSettingData={
                             title:'流式布局',
                             desc:'元素按顺序罗列',
                             src:'https://baidu.com' //待添加
-                            // src:'https://wos2.58cdn.com.cn/iJkFeDcBiJiJ/rocket/2sYKUuqJb.mp4'
                         }
                     },
                     value:'static',

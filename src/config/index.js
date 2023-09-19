@@ -13,7 +13,6 @@ export const defaultProjectData = {
                   P3: '${_url.tjfrom}',
                   P4: '${_url.pagefrom}',
                   P5: '${_url.source_from}',
-                  P7: '58_zp_active'
               }
           },
           style: {
@@ -210,7 +209,7 @@ export const pageMeta={
                         intro:{
                             title:'自由布局',
                             desc:'元素可以任意叠加',
-                            src:'https://wos2.58cdn.com.cn/iJkFeDcBiJiJ/rocket/ua6MlIDBo.mp4'
+                            src:''
                         }
                     },
                     value:'position',
@@ -222,7 +221,7 @@ export const pageMeta={
                         intro:{
                             title:'流式布局',
                             desc:'元素按顺序罗列',
-                            src:'https://wos2.58cdn.com.cn/iJkFeDcBiJiJ/rocket/2sYKUuqJb.mp4'
+                            src:''
                         }
                     },
                     value:'static',
